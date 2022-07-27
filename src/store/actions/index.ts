@@ -12,3 +12,5 @@ interface LOGOUTAction {
   type: AuthActionTypes.LOGOUT;
   payload: {};
 }
+
+export type AuthAction = LOGINAction | LOGOUTAction;
