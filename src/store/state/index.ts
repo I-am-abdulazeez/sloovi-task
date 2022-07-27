@@ -1,5 +1,5 @@
-export const initialState = {
-  user: {},
-  token: '',
-  isAuthenticated: false,
-};
+export interface initialState {
+  user: any | null;
+  token: '';
+  isAuthenticated: false;
+}
