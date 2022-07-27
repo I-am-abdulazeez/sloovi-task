@@ -1,4 +1,4 @@
-import { AuthAction } from '../actions';
+import { AuthAction } from '../actionsTypes';
 import { initialState } from '../state';
 import { AuthActionTypes } from '../types';
 
