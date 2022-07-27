@@ -1,4 +1,4 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
 import type { AppProps } from 'next/app';
 
 import { Provider } from 'react-redux';
@@ -12,9 +12,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
       <ChakraProvider>
-        <Navbar />
+       <Box height={'100vh'}>
+       <Navbar />
         <Component {...pageProps} />
         <Footer />
+       </Box>
       </ChakraProvider>
     </Provider>
   );
