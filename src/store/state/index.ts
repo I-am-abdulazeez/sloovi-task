@@ -1,5 +1,4 @@
 export interface initialState {
-  user: any | null;
-  token: '';
+  user: any;
   isAuthenticated: false;
 }
