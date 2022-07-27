@@ -12,8 +12,17 @@ export const LoginUser =
         type: AuthActionTypes.LOGIN,
         payload: res.data,
       });
+      console.log(res.data);
       return Promise.resolve(res.data);
     } catch (err) {
+      console.log(err);
       return Promise.reject(err);
     }
   };
+
+export const LogoutUser = () => (dispatch: Dispatch<AuthAction>) => {
+  dispatch({
+    type: AuthActionTypes.LOGOUT,
+    payload: null,
+  });
+};
