@@ -14,7 +14,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const icon = colorMode === 'light' ? <SunIcon /> : <MoonIcon />;
   return (
-    <Box height={'3vh'} py={1}>
+    <Box py={1}>
       <Container maxWidth={'container.md'}>
         <HStack>
           <Heading size={'md'}>Sloov</Heading>
