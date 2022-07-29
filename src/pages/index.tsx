@@ -1,27 +1,25 @@
 import { Box, Button } from '@chakra-ui/react';
+
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useDispatch, useSelector } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { actionCreators, State } from '../store';
+
+import { logoutUser } from 'src/features/Auth/auth-slice';
+import { LoginUser } from 'src/store/actions';
+
+import { useAppDispatch, useAppSelector } from 'src/store/hooks';
 
 const Home: NextPage = () => {
-  const dispatch = useDispatch();
-  const { LoginUser, LogoutUser } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
-
-  const reduxState = useSelector((state: State) => state.auth);
-
-  console.log(reduxState);
+  const dispatch = useAppDispatch();
+  const AppState = useAppSelector((state) => state.auth);
 
   const handleLogin = () => {
     const user = {
       email: 'smithwills1989@gmail.com',
       password: '12345678',
     };
-    LoginUser(user);
+    dispatch(LoginUser(user));
+
+    console.log(AppState);
   };
 
   return (
@@ -35,8 +33,8 @@ const Home: NextPage = () => {
       </Button>
       <Button
         onClick={() => {
-          LogoutUser();
-          console.log(reduxState);
+          dispatch(logoutUser());
+          console.log(AppState);
         }}
       >
         Logout User
