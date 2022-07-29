@@ -20,7 +20,9 @@ export interface IUser {
   status: string;
 }
 
-export interface IState {
+export interface AppState {
   user: IUser | null;
-  isAuthenticated: false;
+  isAuthenticated: boolean;
+  loading: boolean;
+  error: string;
 }
