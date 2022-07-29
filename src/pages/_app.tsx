@@ -3,20 +3,20 @@ import type { AppProps } from 'next/app';
 
 import { Provider } from 'react-redux';
 
-import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
+import Footer from 'src/components/Footer';
+import Navbar from 'src/components/Navbar';
 
-import { store } from '../store';
+import store from 'src/store/store';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <Provider store={store}>
       <ChakraProvider>
-       <Box height={'100vh'}>
-       <Navbar />
-        <Component {...pageProps} />
-        <Footer />
-       </Box>
+        <Box height={'100vh'}>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </Box>
       </ChakraProvider>
     </Provider>
   );
