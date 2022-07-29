@@ -1,28 +1,10 @@
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import Router from 'next/router';
+
 import { Dispatch } from 'redux';
-import AppService from '../../services';
-import { AuthAction } from '../actionsTypes';
-import { AuthActionTypes } from '../types';
+import http from '../../http';
+import { Admin } from '../../models';
 
-export const LoginUser =
-  (user: { email: string; password: string }) =>
-  async (dispatch: Dispatch<AuthAction>) => {
-    try {
-      const res = await AppService.loginUser(user);
-      dispatch({
-        type: AuthActionTypes.LOGIN,
-        payload: res.data,
-      });
-      console.log(res.data);
-      return Promise.resolve(res.data);
-    } catch (err) {
-      console.log(err);
-      return Promise.reject(err);
-    }
-  };
-
-export const LogoutUser = () => (dispatch: Dispatch<AuthAction>) => {
-  dispatch({
-    type: AuthActionTypes.LOGOUT,
-    payload: null,
-  });
-};
+export const LoginUser = createAsyncThunk('user/fetchUsers', (data: Admin) => {
+  return http.post('/login', data).then((response) => response.data);
+});
