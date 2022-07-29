@@ -1,6 +1,8 @@
-import { IState } from '../../interfaces';
+import { AppState } from 'src/models';
 
-export const initialState: IState = {
+export const initialState: AppState = {
   user: null,
   isAuthenticated: false,
+  loading: false,
+  error: '',
 };
