@@ -1,11 +1,12 @@
+import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { Input, Center, VStack, Heading, Button } from '@chakra-ui/react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { Admin } from '../models';
+import type { Admin } from '../models';
 
-const Login = () => {
+const Login: NextPage = () => {
   const {
     register,
     handleSubmit,
