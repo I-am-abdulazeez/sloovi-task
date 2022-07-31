@@ -4,7 +4,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 
 import { logoutUser } from 'src/features/Auth/auth-slice';
-import { Admin } from 'src/models';
+import type { Admin } from 'src/models';
 import { LoginUser } from 'src/store/actions';
 
 import { useAppDispatch, useAppSelector } from 'src/store/hooks';
